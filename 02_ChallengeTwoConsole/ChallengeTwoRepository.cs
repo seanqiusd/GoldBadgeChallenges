@@ -12,7 +12,7 @@ namespace _02_ChallengeTwoConsole
 
         // CRUD 
         // create new claim
-        public void AddContentoDirectory(ChallengeTwoContent content)
+        public void AddContentToDirectory(ChallengeTwoContent content)
         {
             _contentDirectory.Enqueue(content);
         }

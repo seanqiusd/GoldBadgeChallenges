@@ -21,6 +21,24 @@ namespace _01_ChallengeOneTests
         }
 
         [TestMethod]
+        public void AddContentToDirectory_ShouldAddContent()
+        {
+            // arrange
+            ChallengeOneRepository repo = new ChallengeOneRepository();
+
+            ChallengeOneContent content = new ChallengeOneContent();
+            repo.AddContentToDirectory(content);
+
+            // act
+            List<ChallengeOneContent> directory = repo.GetDirectory();
+
+            bool directoryHascontent = directory.Contains(content);
+
+            // assert
+            Assert.IsTrue(directoryHascontent);
+        }
+
+        [TestMethod]
         public void GetDirectory_ShouldReturnCorrectCollection()
         {
             // arrange
@@ -37,16 +55,28 @@ namespace _01_ChallengeOneTests
             // assert
             Assert.IsTrue(directoryHasItem);
         }
-
+    
+        [DataTestMethod]
+        [DataRow("BLT Sandwich", true)]
         [TestMethod]
-        public void DeleteExistingContent_ShouldReturnTrue()
+        public void UpdateExistingContent_ShouldReturnTrue(string name, bool expectedResult)
         {
             // arrange
             // act
-            bool removeResult = _repo.DeleteExistingContent(_content);
+            bool updateContent = _repo.UpdateExistingContent(_content, name);
 
             // assert
-            Assert.IsTrue(removeResult);
+            Assert.AreEqual(expectedResult, updateContent);
+        }
+
+
+        [TestMethod]
+        public void DeleteExistingContent_ShouldReturnFalse()
+        {
+            
+            bool removedResult = _repo.DeleteExistingContent(_content);
+            Assert.IsTrue(removedResult);
+
         }
 
         [DataTestMethod]
@@ -61,6 +91,8 @@ namespace _01_ChallengeOneTests
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+
 
 
     }

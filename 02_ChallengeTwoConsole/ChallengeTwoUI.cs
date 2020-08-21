@@ -55,7 +55,7 @@ namespace _02_ChallengeTwoConsole
                     EnterNewClaim();
                     break;
                 case "4":
-                    // method
+                    UpdateExistingClaim();
                     break;
                 case "5":
                     _isRunning = false;
@@ -67,14 +67,7 @@ namespace _02_ChallengeTwoConsole
             Console.ReadKey();
         }
 
-        /*
-         * "1. See all claims\n" +
-                "2. Take care of next claim\n" +
-                "3. Enter a new claim\n" +
-                "4. Modify an exisitng claim\n" +
-                "5. Exit\n");
-         */
-
+     
         // case 1: 
         private void ShowAllClaims()
         {
@@ -105,6 +98,7 @@ namespace _02_ChallengeTwoConsole
             if (userInput == "y")
             {
                 _challengeTwoRepo.DeleteExistingContent();
+                Console.WriteLine("Deleted");
             }
 
         }
@@ -132,7 +126,7 @@ namespace _02_ChallengeTwoConsole
 
             ChallengeTwoContent newClaim = new ChallengeTwoContent(claimID, claimType, description, claimAmount, dateofIncident, dateOfClaim);
 
-            _challengeTwoRepo.AddContentoDirectory(newClaim);
+            _challengeTwoRepo.AddContentToDirectory(newClaim);
         }
 
         // case 4: modify an existing claim
@@ -176,9 +170,9 @@ namespace _02_ChallengeTwoConsole
 
             ChallengeTwoContent thirdClaim = new ChallengeTwoContent(3, ClaimType.Theft, "Stolen pancakes.", 4.00m, new DateTime(2018, 04, 27), new DateTime(2018, 06, 01));
 
-            _challengeTwoRepo.AddContentoDirectory(firstClaim);
-            _challengeTwoRepo.AddContentoDirectory(secondClaim);
-            _challengeTwoRepo.AddContentoDirectory(thirdClaim);
+            _challengeTwoRepo.AddContentToDirectory(firstClaim);
+            _challengeTwoRepo.AddContentToDirectory(secondClaim);
+            _challengeTwoRepo.AddContentToDirectory(thirdClaim);
 
         }
 

@@ -15,9 +15,14 @@ namespace _03_ChallengeThreeConsole
 
         // CRUD
         // create 
-        public void AddBadgeToDictionary(ChallengeThreeBadge item)
+        //public void AddBadgeToDictionary(ChallengeThreeBadge item)
+        //{
+        //    _badgeDictionary.Add(item.BadgeID, item.ListOfDoorNames);
+        //}
+
+        public void AddBadgeToDictionary(int badgeID, List<string> doors)
         {
-            _badgeDictionary.Add(item.BadgeID, item.ListOfDoorNames);
+            _badgeDictionary.Add(badgeID, doors);
         }
 
         // read
@@ -41,18 +46,43 @@ namespace _03_ChallengeThreeConsole
             return null;
         }
 
-        // update a badge
-        public void UpdateABadge(string oldDoorName, string newDoorName, int badgeID)
+        public List<string> GetDoorAccessViaBadgeID(int badgeID)
         {
-            ChallengeThreeBadge badge = GetBadgeByID(badgeID);
-            List<string> listOfDoors = badge.ListOfDoorNames;
-            foreach (string item in listOfDoors)
+            foreach (KeyValuePair<int, List<string>> item in _badgeDictionary)
             {
-                if (item == oldDoorName)
+                if (item.Key == badgeID)
                 {
-                    oldDoorName = newDoorName; // oldDoorName is a list of strings so can set like with like
+                    return item.Value;
                 }
             }
+            return null;
+        }
+
+        // update a badge
+        //public void UpdateABadge(string oldDoorName, string newDoorName, int badgeID)
+        //{
+        //    ChallengeThreeBadge badge = GetBadgeByID(badgeID);
+        //    List<string> listOfDoors = badge.ListOfDoorNames;
+        //    foreach (string item in listOfDoors)
+        //    {
+        //        if (item == oldDoorName)
+        //        {
+        //            oldDoorName = newDoorName; // oldDoorName is a list of strings so can set like with like
+        //        }
+        //    }
+        //}
+
+        // add a door to badge
+        public void AddADoor(int badge, string door) // key value pairs
+        {
+
+            _badgeDictionary[badge].Add(door);
+        }
+
+        // remove a door to badge
+        public void RemoveADoor(int badge, string door)
+        {
+            _badgeDictionary[badge].Remove(door);
         }
 
         // delete badge

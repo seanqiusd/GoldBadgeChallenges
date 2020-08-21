@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BDC1711-2DB6-41A0-8B26-343D6FD84E26}</ProjectGuid>
+    <ProjectGuid>{4C7C52B4-D361-4CA2-A500-31D9633B2574}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02_ChallengeTwoTests</RootNamespace>
-    <AssemblyName>02_ChallengeTwoTests</AssemblyName>
+    <RootNamespace>_03_ChallengeThreeTests</RootNamespace>
+    <AssemblyName>03_ChallengeThreeTests</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,16 +49,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChallengeTwoRepositoryTests.cs" />
+    <Compile Include="ChallengeThreeRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\02_ChallengeTwoConsole\02_ChallengeTwoConsole.csproj">
-      <Project>{27FBB9FA-FA4D-4493-8708-5E59B155A945}</Project>
-      <Name>02_ChallengeTwoConsole</Name>
+    <ProjectReference Include="..\03_ChallengeThreeConsole\03_ChallengeThreeConsole.csproj">
+      <Project>{1CDB059C-76E6-45CF-B40D-EF0D2DB5A216}</Project>
+      <Name>03_ChallengeThreeConsole</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
